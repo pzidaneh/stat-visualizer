@@ -78,7 +78,18 @@ function(input, output, session) {
     #              min.freq = input$freq, max.words=input$max,
     #              colors=brewer.pal(8, "Dark2"))
   })
-  
+  output$downloadPlot <- downloadHandler(
+    filename = function(){paste(input$valueCol, '_', input$graphType, '.png',sep = '')},
+    content = function(file){
+      ggsave(file,plot = last_plot(),device = "png")
+    }
+  )
+  output$downloadWC <- downloadHandler(
+    filename = function(){paste(input$valueCol, '_wordcloud', '.png',sep = '')},
+    content = function(file){
+      ggsave(file,plot = last_plot(),device = "png")
+    }
+  )
   
 
 }

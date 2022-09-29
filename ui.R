@@ -1,6 +1,7 @@
 library(shiny)
 library(shinydashboard)
 library(bslib)
+library(colourpicker)
 
 
 
@@ -36,7 +37,9 @@ ui <- fluidPage(theme = bs_theme(
     
     mainPanel(
       tabsetPanel(tabPanel("Data upload", tableOutput("table")),
-                  tabPanel("Plot", plotOutput("plot")),
+                  tabPanel("Plot", plotOutput("plot"),colourInput("warna", label = "Masukan warna chart",
+                                                                 value = "lightblue", returnName = T,
+                                                                 allowTransparent = T)),
                   tabPanel("Word Cloud", verbatimTextOutput("wctest"), plotOutput("wordCloud"))
     )
     )

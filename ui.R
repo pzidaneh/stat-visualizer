@@ -4,7 +4,10 @@ library(bslib)
 
 
 
-ui <- fluidPage(theme = bs_theme(version = 4, bootswatch = "solar"),
+ui <- fluidPage(theme = bs_theme(
+              bg = "#EB9118", fg = "white", primary = "#FCC780",
+              base_font = font_google("Space Mono"),
+              code_font = font_google("Space Mono")),
                                 titlePanel("Stat Visualizer"),
                                   
                                   sidebarLayout(

@@ -4,6 +4,7 @@ library(wordcloud)
 library(memoise)
 library(tm)
 library(epos)
+library(colourpicker)
 function(input, output, session) {
   
   Var1 <- reactive({
@@ -41,9 +42,9 @@ function(input, output, session) {
     myGG <- ggplot(mapping = aes(x = unlist(myCol())))
                    
     if(input$graphType=="bar"){
-      myGG <- myGG + geom_bar()
+      myGG <- myGG + geom_bar(fill=input$warna)
     } else if(input$graphType=="density"){
-      myGG <- myGG + geom_density()
+      myGG <- myGG + geom_density(fill=input$warna)
     }
     return(myGG)
   })

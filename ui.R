@@ -35,7 +35,7 @@ ui <- fluidPage(theme = bs_theme(
                                       tabsetPanel(
                                         tabPanel("Data upload", tableOutput("table")),
                                         tabPanel("Plot", plotOutput("plot")),
-                                        tabPanel("Word Cloud"), plotOutput("wordCloud"))
+                                        tabPanel("Word Cloud", plotOutput("wordCloud")))
                                       )
                                     )
                                   )

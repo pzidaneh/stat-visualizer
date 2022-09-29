@@ -22,11 +22,11 @@ ui <- fluidPage(
                                     ),
                                     
                                     mainPanel(
-                                      tableOutput("tablefile1"),
+                                      
                                       tabsetPanel(
-                                        tabPanel("Bar Plot", plotOutput("plotfile1")),
-                                        tabPanel("Density Plot", plotOutput("plotfile2")),
-                                        tabPanel("WordCloud"), plotOutput("plotfile3"))
+                                        tabPanel("Data upload", tableOutput("table")),
+                                        tabPanel("Plot", plotOutput("plot")),
+                                        tabPanel("Word Cloud"), plotOutput("wordCloud"))
                                       )
                                     )
                                   )

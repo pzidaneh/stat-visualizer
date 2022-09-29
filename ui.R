@@ -6,9 +6,9 @@ library(colourpicker)
 
 
 ui <- fluidPage(theme = bs_theme(
-  bg = "#B0E0E6", fg = "black", primary = "#87CEEB",
-  base_font = font_google("Space Mono"),
-  code_font = font_google("Space Mono")),
+  bg = "#00203FFF", fg = "White", primary = "#ADEFD1FF",
+  base_font = font_google("Alata"),
+  code_font = font_google("Alata")),
   titlePanel("Stat Visualizer"),
   
   sidebarLayout(
@@ -31,17 +31,18 @@ ui <- fluidPage(theme = bs_theme(
       br(),
       downloadButton("downloadPlot","Download Plot"),
       br(),
-      downloadButton("downloadWC","Download WordCloud")
+      downloadButton("downloadWC","Download WordCloud"),
+      colourInput("warna", label = "Masukan warna chart",
+                  value = "lightblue", returnName = T,
+                  allowTransparent = T)
       
     ),
     
     mainPanel(
       tabsetPanel(tabPanel("Data upload", tableOutput("table")),
-                  tabPanel("Plot", plotOutput("plot"),colourInput("warna", label = "Masukan warna chart",
-                                                                 value = "lightblue", returnName = T,
-                                                                 allowTransparent = T)),
+                  tabPanel("Plot", plotOutput("plot")),
                   tabPanel("Word Cloud", verbatimTextOutput("wctest"), plotOutput("wordCloud"))
-    )
+      )
     )
   )
 )

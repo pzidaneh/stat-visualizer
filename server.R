@@ -31,7 +31,7 @@ function(input, output, session) {
     updateSelectInput(session=session, 
                       inputId="groupCol", 
                       label="Pilih Kolom Pengelompokan: ",
-                      choices = colnames(Var1())[!sapply(Var1(), is.numeric)])
+                      choices = c("", colnames(Var1())[!sapply(Var1(), is.numeric)]))
   })
   output$table <- renderTable(head(Var1()))
   
@@ -39,18 +39,26 @@ function(input, output, session) {
   myTable <- reactive(table(myCol()))
   
   GGPlot <- reactive({
-    myGG <- ggplot(mapping = aes(x = unlist(myCol())))
+    #myGG <- ggplot(mapping = aes(x = unlist(myCol())))
+    myGG <- ggplot(data = Var1(), mapping = aes_string(x = input$valueCol))
                    
     if(input$graphType=="bar"){
       myGG <- myGG + geom_bar(fill=input$warna)
     } else if(input$graphType=="density"){
       myGG <- myGG + geom_density(fill=input$warna)
     }
+    
+    if(input$groupCol != "") {
+      #myGG <- myGG + facet_grid(cols = Var1()[input$groupCol])
+      #myGG <- myGG + facet_grid(cols = Var1()[parse(text = input$groupCol)])
+      myGG <- myGG + facet_wrap(paste0("~ ", Var1()[input$groupCol]))
+    }
+    
     return(myGG)
   })
   output$plot<-renderPlot(GGPlot())
   
-  output$wctest <- renderPrint(Var1())
+  output$wctest <- renderPrint(input$groupCol)
   #output$wordCloud <- renderPlot(GGPlot())
   
   #terms <- reactive({
@@ -71,7 +79,7 @@ function(input, output, session) {
     wordcloud_rep(names(myTable()), myTable(), min.freq = 1)
   })
   
-  output$wctest <- renderPrint(names(myTable()))
+  #output$wctest <- renderPrint(names(myTable()))
   output$wordCloud <- renderPlot({
     myWC()
     #v <- terms()

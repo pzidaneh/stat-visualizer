@@ -1,6 +1,10 @@
 library(shiny)
 library(shinydashboard)
-fluidPage(
+library(bslib)
+
+
+
+ui <- fluidPage(theme = bs_theme(version = 4, bootswatch = "solar"),
                                 titlePanel("Stat Visualizer"),
                                   
                                   sidebarLayout(
@@ -32,5 +36,5 @@ fluidPage(
                                       )
                                     )
                                   )
-                                
-                   
+
+

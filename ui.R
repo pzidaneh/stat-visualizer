@@ -29,13 +29,13 @@ ui <- fluidPage(theme = bs_theme(
       selectInput("groupCol", "Pilih kolom pengelompokkan",
                   choices=NULL),
       br(),
+      colourInput("warna", label = "Masukan warna chart",
+                  value = "lightblue", returnName = T,
+                  allowTransparent = T),
+      br(),
       downloadButton("downloadPlot","Download Plot"),
       br(),
       downloadButton("downloadWC","Download WordCloud"),
-      colourInput("warna", label = "Masukan warna chart",
-                  value = "lightblue", returnName = T,
-                  allowTransparent = T)
-      
     ),
     
     mainPanel(
@@ -46,3 +46,4 @@ ui <- fluidPage(theme = bs_theme(
     )
   )
 )
+

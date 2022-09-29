@@ -5,9 +5,9 @@ library(bslib)
 
 
 ui <- fluidPage(theme = bs_theme(
-              bg = "#EB9118", fg = "white", primary = "#FCC780",
-              base_font = font_google("Space Mono"),
-              code_font = font_google("Space Mono")),
+          bg = "#1EA087", fg = "black", primary = "#1EA085",
+          base_font = font_google("Space Mono"),
+          code_font = font_google("Space Mono")),
                                 titlePanel("Stat Visualizer"),
                                   
                                   sidebarLayout(

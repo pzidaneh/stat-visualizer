@@ -32,10 +32,10 @@ function(input, output, session) {
                       label="Pilih Kolom Pengelompokan: ",
                       choices = colnames(Var1())[!sapply(Var1(), is.numeric)])
   })
-  output$table <- renderTable(Var1())
+  output$table <- renderTable(head(Var1()))
   
   myCol <- reactive(Var1()[input$valueCol])
-  #myTable <- reactive(table(myCol()))
+  myTable <- reactive(table(myCol()))
   
   GGPlot <- reactive({
     myGG <- ggplot(mapping = aes(x = unlist(myCol())))
@@ -49,29 +49,35 @@ function(input, output, session) {
   })
   output$plot<-renderPlot(GGPlot())
   
+  output$wctest <- renderPrint(Var1())
+  #output$wordCloud <- renderPlot(GGPlot())
+  
   #terms <- reactive({
-    # Change when the "update" button is pressed...
+     #Change when the "update" button is pressed...
     #input$update
     # ...but not for anything else
-  #  isolate({
+  # isolate({
   #    withProgress({
   #      setProgress(message = "Processing corpus...")
-  #      getTermMatrix(myCol())
+  #      getTermMatrix(as.character(myCol()))
   #    })
   #  })
   #})
   
-  #wordcloud_rep <- repeatable(wordcloud)
-  #myWC <- reactive({
-  #  wordcloud_rep(names(myTable()), myTable(), min.freq = 1)
-  #})
+  wordcloud_rep <- repeatable(wordcloud)
+  myWC <- reactive({
+  #  #wordcloud_rep(names(myTable()), myTable(), min.freq = 1)
+    wordcloud_rep(names(myTable()), myTable(), min.freq = 1)
+  })
   
-  #output$wordCloud <- renderPlot({
-  #  v <- terms()
-  #  wordcloud_rep(names(v), v, scale=c(4,0.5),
-  #                min.freq = input$freq, max.words=input$max,
-  #                colors=brewer.pal(8, "Dark2"))
-  #})
+  output$wctest <- renderPrint(names(myTable()))
+  output$wordCloud <- renderPlot({
+    myWC()
+    #v <- terms()
+    #wordcloud_rep(names(v), v, scale=c(4,0.5),
+    #              min.freq = input$freq, max.words=input$max,
+    #              colors=brewer.pal(8, "Dark2"))
+  })
   
   
 

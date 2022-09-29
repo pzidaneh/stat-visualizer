@@ -15,7 +15,7 @@ fluidPage(
                                                      space = ' '),
                                                    selected = ";"),
                                       selectInput("graphType", "Pilih tipe grafik",
-                                                  choices=NULL),
+                                                  choices=c("bar", "density")),
                                       selectInput("valueCol", "Pilih kolom nilai",
                                                   choices=NULL),
                                       selectInput("groupCol", "Pilih kolom pengelompokkan",

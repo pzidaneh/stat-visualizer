@@ -2,12 +2,12 @@ library(shiny)
 library(ggplot2)
 library(wordcloud)
 library(memoise)
+library(tm)
 library(epos)
 library(colourpicker)
 library(shinydashboard)
 library(bslib)
 library(colourpicker)
-library(tm)
 
 ui <- fluidPage(theme = bs_theme(
   bg = "#00203FFF", fg = "White", primary = "#ADEFD1FF",
@@ -32,6 +32,9 @@ ui <- fluidPage(theme = bs_theme(
                   choices=NULL),
       selectInput("groupCol", "Pilih kolom pengelompokkan",
                   choices=NULL),
+      colourInput("warna", label = "Masukan warna chart",
+                  value = "lightblue", returnName = T,
+                  allowTransparent = T),
     ),
     
     mainPanel(
@@ -39,9 +42,7 @@ ui <- fluidPage(theme = bs_theme(
                   tabPanel("Plot",
                            br(),
                            downloadButton("downloadPlot","Download Plot"),
-                           plotOutput("plot"),colourInput("warna", label = "Masukan warna chart",
-                                                          value = "lightblue", returnName = T,
-                                                          allowTransparent = T),),
+                           plotOutput("plot"),),
                   tabPanel("Word Cloud",
                            br(),
                            downloadButton("downloadWC","Download WordCloud"),

@@ -2,12 +2,12 @@ library(shiny)
 library(ggplot2)
 library(wordcloud)
 library(memoise)
-library(tm)
 library(epos)
 library(colourpicker)
 library(shinydashboard)
 library(bslib)
 library(colourpicker)
+library(tm)
 
 ui <- fluidPage(theme = bs_theme(
   bg = "#00203FFF", fg = "White", primary = "#ADEFD1FF",

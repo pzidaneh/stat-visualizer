@@ -33,7 +33,7 @@ function(input, output, session) {
                       label="Pilih Kolom Pengelompokan: ",
                       choices = c("", colnames(Var1())[!sapply(Var1(), is.numeric)]))
   })
-  output$table <- renderTable(head(Var1()))
+  output$table <- renderTable(head(Var1(),10))
   
   myCol <- reactive(Var1()[input$valueCol])
   myTable <- reactive(table(myCol()))

@@ -7,10 +7,10 @@ Stat Visualizer! menawarkan beberapa fitur utama yang diantaranya membuat visual
 ## Batasan Aplikasi
 Stat Visualizer! hanya dapat menampilkan satu jenis output dalam satu waktu.
 ## Alur Kerja Aplikasi
-· User menginput data
-· Program dapat menerima data numerik dan kategorik
-· User memilih variabel dan jenis visualisasi yang akan ditampilkan
-· User dapat melakukan binning terhadap data numerik (merubah jadi kategorik)
-· Output visualisasi terlihat pada dashboard
+1. User menginput data;
+2. Program dapat menerima data numerik dan kategorik;
+3. User memilih variabel dan jenis visualisasi yang akan ditampilkan;
+4. User dapat melakukan binning terhadap data numerik (diubah menjadi kategorik);
+5. Output visualisasi terlihat pada dashboard.
 ## Link
 https://muamarifqif.shinyapps.io/project/?_ga=2.163814582.809322209.1664522819-630362114.1664522819

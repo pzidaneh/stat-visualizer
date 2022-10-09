@@ -1,6 +1,6 @@
 # Stat Visualizer!
 Tugas Akhir Mata Kuliah STK493 - Topik Khusus Statistika Semester Ganjil 2022/2023.
-### Kelompok 8:
+#### Kelompok 8:
 1. Diftania Putri Imani (G14190008)
 2. Muamar Rifqi Firdaus (G14190018)
 3. Resti Hadiyani Utami (G14190030)
